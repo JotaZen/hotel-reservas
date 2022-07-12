@@ -43,16 +43,17 @@ salida = date(2022, 1,1)
 entrada_salida=(entrada, salida)
 tiempoEstadia(entrada_salida)
 
+xd = HabitacionDoble("xd")
 #calculoPrecio(xd, default="")
 
-##############################
+############Chano###############
 
 HabitacionDoble.comodidades = ", ".join(HabitacionDoble.comodidades)+ "."
 HabitacionQuintuple.comodidades = ", ".join(HabitacionQuintuple.comodidades)+ "."
 DobleEconomy.comodidades = ", ".join(DobleEconomy.comodidades)+ "."
 
 PuntaDeLobos = HabitacionDoble("Punta De Lobos")
-Infierno = HabitacionDoble("infierno")
+Infierno = HabitacionDoble("Infierno")
 LaPancora = HabitacionDoble("La Pancora")
 Puertecita = HabitacionDoble("Puertecita")
 
@@ -79,7 +80,7 @@ def habitacionReserva(habitacion):
     print("Habitaciones")
     print("------------")
     for i in habitacion.habitaciones:
-        print(i.nombre)
+        print(i.nombre + "  -" + i.estado)
     return
 
 
