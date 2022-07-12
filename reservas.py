@@ -84,7 +84,7 @@ economy.append(Paimon)
 
 
 print("**************")
-print("***Recervas***")
+print("***Reservas***")
 print("**************")
 
 while True:
