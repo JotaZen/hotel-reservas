@@ -1,3 +1,4 @@
+#Clase habitaciones!#
 class HabitacionDoble:
     tipo = "Habitacion Doble"
     descripcion = "Habitacion para dos personas con baño privado y Desayuno incluido"
@@ -6,7 +7,9 @@ class HabitacionDoble:
     comodidades = ["Televisión por cable" , "Secador de Cabello"]
     estado = "libre"
     nombre = ""
-  
+    habitaciones = []
+    
+    
 class HabitacionQuintuple:
     tipo = "Habitacion Quintuple"
     descripcion = "Habitacion para 5 personas con una cama matrimonial y 3 camas individuales. Baño privado."
@@ -15,6 +18,7 @@ class HabitacionQuintuple:
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
     nombre = ""
+    habitaciones = []
   
 class DobleEconomy:
     tipo = "DobleEconomy"
@@ -23,4 +27,6 @@ class DobleEconomy:
     tarifa_online = 65550
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
-    nombre = ""
+    nombre = "asd"
+    habitaciones = []
+  
