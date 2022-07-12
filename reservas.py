@@ -90,9 +90,11 @@ while True:
     print("------------------------")
     
     opcion = input("Que opcion desea: ")
-    while opcion == "" or int(opcion) < 1 or int(opcion) > 5:
+    while not opcion in("1","2","3","4"):
         print("Ingrese una opcion correcta .....")
-        input("Que opcion desea: ")
+        opcion = input("Que opcion desea: ")
+    opcion = int(opcion)
+    
     if opcion == 1:
         print("Habitacion Doble")
         print(HabitacionDoble.descripcion)
