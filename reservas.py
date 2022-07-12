@@ -1,14 +1,52 @@
 from habitaciones import HabitacionDoble, HabitacionQuintuple, DobleEconomy
 from datetime import date, datetime
 
-def tiempoEstadia(entrada, salida):
+###########JOTA################
+
+xd = HabitacionDoble()
+def fechaInput(año):
+    while True:
+        try:
+            mesEntrada = int(input("mes entrada -> "))
+            diaEntrada = int(input("dia entrada-> "))
+            entrada = date(año, mesEntrada, diaEntrada)
+        except:
+            print("Datos erroneos")
+            continue
+        break
+    while True:
+        try:
+            mesSalida = int(input("mes salida -> "))
+            diaSalida = int(input("dia salida-> "))
+            salida = date(año, mesSalida, diaSalida)
+        except:
+            print("Datos erroneos")
+            continue
+        return (entrada, salida)
+
+def tiempoEstadia(entrada_salida):
     #date
+    entrada = entrada_salida[0]
+    salida = entrada_salida[1]
     x = salida - entrada   
     return x.days
 
+def calculoPrecio(habitacion, divisa = "CLP",default="si"):
+    if default=="si":
+        dias = tiempoEstadia(entrada_salida)
+    else:
+        dias = tiempoEstadia(fechaInput(2022))
+    tarifa = habitacion.tarifa_online * dias
+    print(f"${'{:,}'.format(tarifa).replace(',', '.')} por los {dias} dias")
+
+entrada = date(2022, 1,1)
+salida = date(2022, 1,1)
+entrada_salida=(entrada, salida)
+tiempoEstadia(entrada_salida)
+
+#calculoPrecio(xd, default="")
 
 ##############################
-from Habitaciones import HabitacionDoble, HabitacionQuintuple, DobleEconomy
 
 doble=[]
 quintuple=[]
