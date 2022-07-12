@@ -1,4 +1,4 @@
-Class HabitacionDoble:
+class HabitacionDoble:
     tipo = "Habitacion Doble"
     descripcion = "Habitacion para dos personas con baño privado y Desayuno incluido"
     ocupacion_max = 2
@@ -7,7 +7,7 @@ Class HabitacionDoble:
     estado = "libre"
     nombre = ""
   
-Class HabitacionQuintuple:
+class HabitacionQuintuple:
     tipo = "Habitacion Quintuple"
     descripcion = "Habitacion para 5 personas con una cama matrimonial y 3 camas individuales. Baño privado."
     ocupacion_max = 5
@@ -16,7 +16,7 @@ Class HabitacionQuintuple:
     estado = "libre"
     nombre = ""
   
-Class DobleEconomy:
+class DobleEconomy:
     tipo = "DobleEconomy"
     descripcion = "Habitación para dos personas con cama doble, baño privado y desayuno incluido"
     ocupacion_max = 2
