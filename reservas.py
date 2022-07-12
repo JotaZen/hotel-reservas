@@ -51,28 +51,20 @@ HabitacionDoble.comodidades = ", ".join(HabitacionDoble.comodidades)+ "."
 HabitacionQuintuple.comodidades = ", ".join(HabitacionQuintuple.comodidades)+ "."
 DobleEconomy.comodidades = ", ".join(DobleEconomy.comodidades)+ "."
 
-PuntaDeLobos = HabitacionDoble()
-PuntaDeLobos.nombre = "Punta De Lobos"
-Infierno = HabitacionDoble()
-Infierno.nombre = "infierno"
-LaPancora = HabitacionDoble()
-LaPancora.nombre = "La Pancora"
-Puertecita = HabitacionDoble()
-Puertecita.nombre = "Puertecita"
+PuntaDeLobos = HabitacionDoble("Punta De Lobos")
+Infierno = HabitacionDoble("infierno")
+LaPancora = HabitacionDoble("La Pancora")
+Puertecita = HabitacionDoble("Puertecita")
 
 HabitacionDoble.habitaciones = [PuntaDeLobos, Infierno, LaPancora, Puertecita]
 
-Cajon = HabitacionQuintuple()
-Cajon.nombre = "Cajón"
-Maipo = HabitacionQuintuple()
-Maipo.nombre = "Maipo"
+Cajon = HabitacionQuintuple("Cajón")
+Maipo = HabitacionQuintuple("Maipo")
 
 HabitacionQuintuple.habitaciones = [Cajon ,Maipo]
 
-Pinochet = DobleEconomy()
-Pinochet.nombre = "Pinochet"
-Paimon = DobleEconomy()
-Paimon.nombre = "Paimon"
+Pinochet = DobleEconomy("Pinochet")
+Paimon = DobleEconomy("Paimon")
 
 DobleEconomy.habitaciones = [Pinochet, Paimon]
 
