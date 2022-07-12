@@ -24,8 +24,3 @@ Class DobleEconomy:
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
     nombre = ""
-  
- plancoet = DobleEconomy(nombre = "Plancoet")
- print(plancoet.nombre)
- paimpol = DobleEconomy(nombre = "Paimpol")
- print(paimpol.nombre)
