@@ -1,5 +1,6 @@
 from habitaciones import HabitacionDoble, HabitacionQuintuple, DobleEconomy
 from datetime import date, datetime
+import os
 
 ###########JOTA################
 
@@ -43,7 +44,6 @@ salida = date(2022, 1,1)
 entrada_salida=(entrada, salida)
 tiempoEstadia(entrada_salida)
 
-xd = HabitacionDoble("xd")
 #calculoPrecio(xd, default="")
 
 ############Chano###############
@@ -70,25 +70,27 @@ Paimon = DobleEconomy("Paimon")
 DobleEconomy.habitaciones = [Pinochet, Paimon]
 
 def habitacionReserva(habitacion):
-    print(habitacion.tipo)
-    print(habitacion.descripcion)
-    print("Maximo de Personas:", habitacion.ocupacion_max)
-    print("Tarifa: $",'{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
-    print(habitacion.comodidades)
+    print()
+    print(" "+habitacion.tipo)
+    print(" "+habitacion.descripcion)
+    print(" Maximo de Personas:", habitacion.ocupacion_max)
+    print(" Tarifa: $",'{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
+    print(" "+habitacion.comodidades)
 
     print("------------")
     print("Habitaciones")
     print("------------")
     for i in habitacion.habitaciones:
-        print(i.nombre + "  -" + i.estado)
+        print("- " + i.nombre + "  -" + i.estado)
     return
 
-
-print("**************")
-print("***Reservas***")
-print("**************")
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 while True:
+    print("**************")
+    print("***Reservas***")
+    print("**************")
     print("------------------------")
     print("1 - Habitacion Doble")
     print("2 - Habitacion Quintuple")
@@ -98,8 +100,8 @@ while True:
     
     opcion = input("Que opcion desea: ")
     while not opcion in("1","2","3","4"):
-        print("Ingrese una opcion correcta .....")
-        opcion = input("Que opcion desea: ")
+        print(" Ingrese una opcion correcta .....")
+        opcion = input(" Que opcion desea: ")
     opcion = int(opcion)
     
     if opcion in (1,2,3):
@@ -107,8 +109,10 @@ while True:
         if opcion == 2: habitacion = HabitacionQuintuple
         if opcion == 3: habitacion = DobleEconomy  
         habitacionReserva(habitacion)
-        input("Quiere reservar?: ")
+        input(" Quiere reservar?: ")
      
     
     if opcion == 4:
         break
+    cls()
+input()
