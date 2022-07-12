@@ -8,7 +8,8 @@ class HabitacionDoble:
     estado = "libre"
     nombre = ""
     habitaciones = []
-    
+    def __init__(self, nombre):
+        self.nombre = nombre
     
 class HabitacionQuintuple:
     tipo = "Habitacion Quintuple"
@@ -19,6 +20,8 @@ class HabitacionQuintuple:
     estado = "libre"
     nombre = ""
     habitaciones = []
+    def __init__(self, nombre):
+        self.nombre = nombre
   
 class DobleEconomy:
     tipo = "DobleEconomy"
@@ -29,4 +32,7 @@ class DobleEconomy:
     estado = "libre"
     nombre = "asd"
     habitaciones = []
+    def __init__(self, nombre):
+        self.nombre = nombre
+  
   
