@@ -48,40 +48,34 @@ tiempoEstadia(entrada_salida)
 
 ##############################
 
-doble=[]
-quintuple=[]
-economy=[]
 HabitacionDoble.comodidades = ", ".join(HabitacionDoble.comodidades)+ "."
 HabitacionQuintuple.comodidades = ", ".join(HabitacionQuintuple.comodidades)+ "."
 DobleEconomy.comodidades = ", ".join(DobleEconomy.comodidades)+ "."
 
 PuntaDeLobos = HabitacionDoble()
 PuntaDeLobos.nombre = "Punta De Lobos"
-doble.append(PuntaDeLobos)
 Infierno = HabitacionDoble()
 Infierno.nombre = "infierno"
-doble.append(Infierno)
 LaPancora = HabitacionDoble()
 LaPancora.nombre = "La Pancora"
-doble.append(LaPancora)
 Puertecita = HabitacionDoble()
 Puertecita.nombre = "Puertecita"
-doble.append(Puertecita)
+
+doble = [PuntaDeLobos, Infierno, LaPancora, Puertecita]
 
 Cajon = HabitacionQuintuple()
 Cajon.nombre = "Cajón"
-quintuple.append(Cajon)
 Maipo = HabitacionQuintuple()
 Maipo.nombre = "Maipo"
-quintuple.append(Maipo)
+
+quintuple = [Cajon ,Maipo]
 
 Pinochet = DobleEconomy()
 Pinochet.nombre = "Pinochet"
-economy.append(Pinochet)
 Paimon = DobleEconomy()
 Paimon.nombre = "Paimon"
-economy.append(Paimon)
 
+economy=[Pinochet, Paimon]
 
 print("**************")
 print("***Reservas***")
