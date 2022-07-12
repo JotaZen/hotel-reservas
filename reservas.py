@@ -96,8 +96,8 @@ while True:
     if opcion == 1:
         print("Habitacion Doble")
         print(HabitacionDoble.descripcion)
-        print(HabitacionDoble.ocupacion_max)
-        print(HabitacionDoble.tarifa_online)
+        print("Maximo de Personas:", HabitacionDoble.ocupacion_max)
+        print("Tarifa: $",HabitacionDoble.tarifa_online)
         print(HabitacionDoble.comodidades)
 
         print("------------")
@@ -109,8 +109,8 @@ while True:
     if opcion == 2:
         print("Habitacion Quintuple")
         print(HabitacionQuintuple.descripcion)
-        print(HabitacionQuintuple.ocupacion_max)
-        print(HabitacionQuintuple.tarifa_online)
+        print("Maximo de Personas:", HabitacionQuintuple.ocupacion_max)
+        print("Tarifa: $",HabitacionQuintuple.tarifa_online)
         print(HabitacionQuintuple.comodidades)
 
         print("------------")
@@ -122,8 +122,8 @@ while True:
     if opcion == 3:
         print("Doble Economy")
         print(DobleEconomy.descripcion)
-        print(DobleEconomy.ocupacion_max)
-        print(DobleEconomy.tarifa_online)
+        print("Maximo de Personas:", DobleEconomy.ocupacion_max)
+        print("Tarifa: $",DobleEconomy.tarifa_online)
         print(DobleEconomy.comodidades)
 
         print("------------")
