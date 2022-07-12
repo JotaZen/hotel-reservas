@@ -3,7 +3,6 @@ from datetime import date, datetime
 
 ###########JOTA################
 
-xd = HabitacionDoble()
 def fechaInput(año):
     while True:
         try:
@@ -37,7 +36,7 @@ def calculoPrecio(habitacion, divisa = "CLP",default="si"):
     else:
         dias = tiempoEstadia(fechaInput(2022))
     tarifa = habitacion.tarifa_online * dias
-    print(f"${'{:,}'.format(tarifa).replace(',', '.')} por los {dias} dias")
+    print(f"${'{:_}'.format(tarifa).replace('_', '.')} por los {dias} dias")
 
 entrada = date(2022, 1,1)
 salida = date(2022, 1,1)
@@ -61,46 +60,34 @@ LaPancora.nombre = "La Pancora"
 Puertecita = HabitacionDoble()
 Puertecita.nombre = "Puertecita"
 
-doble = [PuntaDeLobos, Infierno, LaPancora, Puertecita]
+HabitacionDoble.habitaciones = [PuntaDeLobos, Infierno, LaPancora, Puertecita]
 
 Cajon = HabitacionQuintuple()
 Cajon.nombre = "Cajón"
 Maipo = HabitacionQuintuple()
 Maipo.nombre = "Maipo"
 
-quintuple = [Cajon ,Maipo]
+HabitacionQuintuple.habitaciones = [Cajon ,Maipo]
 
 Pinochet = DobleEconomy()
 Pinochet.nombre = "Pinochet"
 Paimon = DobleEconomy()
 Paimon.nombre = "Paimon"
 
-economy=[Pinochet, Paimon]
+DobleEconomy.habitaciones = [Pinochet, Paimon]
 
 def habitacionReserva(habitacion):
     print(habitacion.tipo)
     print(habitacion.descripcion)
     print("Maximo de Personas:", habitacion.ocupacion_max)
-    print("Tarifa: $",habitacion.tarifa_online)
+    print("Tarifa: $",'{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
     print(habitacion.comodidades)
 
     print("------------")
     print("Habitaciones")
     print("------------")
-    if habitacion == HabitacionDoble:
-        for i in doble:
-            print(i.nombre)
-        input("Quiere reservar?: ")
-
-    if habitacion == HabitacionQuintuple:
-        for i in quintuple:
-            print(i.nombre)
-        input("Quiere reservar?: ")
-        
-    if habitacion == DobleEconomy:
-        for i in economy:
-            print(i.nombre)
-        input("Quiere reservar?: ")
+    for i in habitacion.habitaciones:
+        print(i.nombre)
     return
 
 
@@ -122,12 +109,13 @@ while True:
         opcion = input("Que opcion desea: ")
     opcion = int(opcion)
     
-    if opcion == 1:
-        habitacionReserva(HabitacionDoble)
-    if opcion == 2:
-        habitacionReserva(HabitacionQuintuple)
-    if opcion == 3:
-        habitacionReserva(DobleEconomy)
+    if opcion in (1,2,3):
+        if opcion == 1: habitacion = HabitacionDoble
+        if opcion == 2: habitacion = HabitacionQuintuple
+        if opcion == 3: habitacion = DobleEconomy  
+        habitacionReserva(habitacion)
+        input("Quiere reservar?: ")
+     
     
     if opcion == 4:
         break
