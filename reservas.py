@@ -89,7 +89,7 @@ while True:
     print("4 - Salir")
     print("------------------------")
     
-    opcion = int(input("Que opcion desea: "))
+    opcion = input("Que opcion desea: ")
     while opcion == "" or int(opcion) < 1 or int(opcion) > 5:
         print("Ingrese una opcion correcta .....")
         input("Que opcion desea: ")
