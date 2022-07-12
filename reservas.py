@@ -77,6 +77,33 @@ Paimon.nombre = "Paimon"
 
 economy=[Pinochet, Paimon]
 
+def habitacionReserva(habitacion):
+    print(habitacion.tipo)
+    print(habitacion.descripcion)
+    print("Maximo de Personas:", habitacion.ocupacion_max)
+    print("Tarifa: $",habitacion.tarifa_online)
+    print(habitacion.comodidades)
+
+    print("------------")
+    print("Habitaciones")
+    print("------------")
+    if habitacion == HabitacionDoble:
+        for i in doble:
+            print(i.nombre)
+        input("Quiere reservar?: ")
+
+    if habitacion == HabitacionQuintuple:
+        for i in quintuple:
+            print(i.nombre)
+        input("Quiere reservar?: ")
+        
+    if habitacion == DobleEconomy:
+        for i in economy:
+            print(i.nombre)
+        input("Quiere reservar?: ")
+    return
+
+
 print("**************")
 print("***Reservas***")
 print("**************")
@@ -96,43 +123,11 @@ while True:
     opcion = int(opcion)
     
     if opcion == 1:
-        print("Habitacion Doble")
-        print(HabitacionDoble.descripcion)
-        print("Maximo de Personas:", HabitacionDoble.ocupacion_max)
-        print("Tarifa: $",HabitacionDoble.tarifa_online)
-        print(HabitacionDoble.comodidades)
-
-        print("------------")
-        print("Habitaciones")
-        print("------------")
-        for i in doble:
-            print(i.nombre)
-        input("Quiere reservar?: ")
+        habitacionReserva(HabitacionDoble)
     if opcion == 2:
-        print("Habitacion Quintuple")
-        print(HabitacionQuintuple.descripcion)
-        print("Maximo de Personas:", HabitacionQuintuple.ocupacion_max)
-        print("Tarifa: $",HabitacionQuintuple.tarifa_online)
-        print(HabitacionQuintuple.comodidades)
-
-        print("------------")
-        print("Habitaciones")
-        print("------------")
-        for i in quintuple:
-            print(i.nombre)
-        input("Quiere reservar?: ")
+        habitacionReserva(HabitacionQuintuple)
     if opcion == 3:
-        print("Doble Economy")
-        print(DobleEconomy.descripcion)
-        print("Maximo de Personas:", DobleEconomy.ocupacion_max)
-        print("Tarifa: $",DobleEconomy.tarifa_online)
-        print(DobleEconomy.comodidades)
-
-        print("------------")
-        print("Habitaciones")
-        print("------------")
-        for i in economy:
-            print(i.nombre)
-        input("Quiere reservar?: ")
+        habitacionReserva(DobleEconomy)
+    
     if opcion == 4:
         break
