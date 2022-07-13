@@ -10,20 +10,20 @@ def fechaInput(año):
             mesEntrada = int(input("mes entrada -> "))
             diaEntrada = int(input("dia entrada-> "))
             entrada = date(año, mesEntrada, diaEntrada)
+            break
         except:
             print("Datos erroneos")
-            continue
-        break
+        
     while True:
         try:
             mesSalida = int(input("mes salida -> "))
             diaSalida = int(input("dia salida-> "))
             salida = date(año, mesSalida, diaSalida)
+            return (entrada, salida)
         except:
             print("Datos erroneos")
-            continue
-        return (entrada, salida)
-
+ 
+        
 def tiempoEstadia(entrada_salida):
     #date
     entrada = entrada_salida[0]
@@ -85,7 +85,7 @@ def habitacionReserva(habitacion):
     return
 
 def cls():
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls')
 
 while True:
     print("**************")
