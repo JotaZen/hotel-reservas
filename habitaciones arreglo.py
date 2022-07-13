@@ -1,5 +1,3 @@
-#Clase habitaciones!
-
 class Habitacion:
 
     #--Atributos--#
@@ -11,11 +9,14 @@ class Habitacion:
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
     habitaciones = []
-    fechasReservas = []
+    diasReservado = []
  
     #--Acciones--#
-    def __init__(self, nombre):
-        self.nombre = nombre
+    def __init__(habitacion, nombre):
+        habitacion.nombre = nombre
+
+    def __str__(habitacion):
+        return habitacion.nombre
 
 class HabitacionDoble(Habitacion):
     tipo = "Habitacion Doble"
