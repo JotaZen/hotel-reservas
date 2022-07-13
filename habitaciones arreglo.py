@@ -3,6 +3,7 @@
 class Habitacion:
 
     #--Atributos--#
+    nombre = str
     tipo = "Habitacion"
     descripcion = "Habitacion"
     ocupacion_max = 0
@@ -10,7 +11,7 @@ class Habitacion:
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
     habitaciones = []
-    nombre = str
+    fechasReservas = []
  
     #--Acciones--#
     def __init__(self, nombre):
