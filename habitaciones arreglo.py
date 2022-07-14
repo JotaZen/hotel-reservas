@@ -35,5 +35,10 @@ class DobleEconomy(Habitacion):
     descripcion = "Habitación para dos personas con cama doble, baño privado y desayuno incluido"
     ocupacion_max = 2
     tarifa_online = 65550
- 
+
+class Cliente:
+    nombres = ""
+    apellidos = ""
+    teléfono = ""
+    
   
