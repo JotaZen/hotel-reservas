@@ -4,6 +4,16 @@ import os
 
 ###########JOTA################
 
+def mes(mes, nombre=True):
+    meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    if mes.isnumeric() and int(mes)<13 and mes != "0":
+        return meses[int(mes)-1]
+    elif mes.capitalize() in meses:
+        if nombre == True: return mes.capitalize()
+	else: return 1 + meses.index(mes.capitalize())
+    return "Not a Month"
+
 def fechaInput(año):
     while True:
         try:
