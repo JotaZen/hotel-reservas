@@ -4,63 +4,41 @@ import os
 
 ###########JOTA################
 
-def mes(mes, nombre=True):
+def mes(mes):
     meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
     if mes.isnumeric() and int(mes)<13 and mes != "0":
         return meses[int(mes)-1]
     elif mes.capitalize() in meses:
-        if nombre == True: return mes.capitalize()
-	else: return 1 + meses.index(mes.capitalize())
+        return 1 + meses.index(mes.capitalize())
     return "Not a Month"
 
-def fechaInput(año):
-    while True:
-        try:
-            mesEntrada = int(input("mes entrada -> "))
-            diaEntrada = int(input("dia entrada-> "))
-            entrada = date(año, mesEntrada, diaEntrada)
-            break
-        except:
-            print("Datos erroneos")
-        
-    while True:
-        try:
-            mesSalida = int(input("mes salida -> "))
-            diaSalida = int(input("dia salida-> "))
-            salida = date(año, mesSalida, diaSalida)
-            return (entrada, salida)
-        except:
-            print("Datos erroneos")
- 
-        
-def tiempoEstadia(entrada_salida):
-    #date
-    entrada = entrada_salida[0]
-    salida = entrada_salida[1]
-    x = salida - entrada   
-    return x.days
+#--Importante--#
+def tiempoEstadia(entrada, dias):
+    dias_estadia = []
+    for dia in range(dias):
+        dias_estadia.append(entrada + dt.timedelta(dia))
+    else: return dias_estadia  
+#--------------#
 
-def calculoPrecio(habitacion, divisa = "CLP",default="si"):
-    if default=="si":
-        dias = tiempoEstadia(entrada_salida)
-    else:
-        dias = tiempoEstadia(fechaInput(2022))
+def disponibilidad(habitacion, entrada, dias):
+    for day in tiempoEstadia(entrada, dias):
+        if day in habitacion.dias_reservados: return False       
+    else: return True
+        
+def reservar(habitacion, entrada, dias):
+    estadia = tiempoEstadia(entrada, dias)
+    if disponibilidad(habitacion, estadia):
+        for day in estadia:
+            habitacion.dias_reservados.append(day)
+            
+def calculoPrecio(habitacion, entrada, dias):
+    dias = len(tiempoEstadia(entrada, dias))
     tarifa = habitacion.tarifa_online * dias
     print(f"${'{:_}'.format(tarifa).replace('_', '.')} por los {dias} dias")
 
-entrada = date(2022, 1,1)
-salida = date(2022, 1,1)
-entrada_salida=(entrada, salida)
-tiempoEstadia(entrada_salida)
-
-#calculoPrecio(xd, default="")
 
 ############Chano###############
-
-HabitacionDoble.comodidades = ", ".join(HabitacionDoble.comodidades)+ "."
-HabitacionQuintuple.comodidades = ", ".join(HabitacionQuintuple.comodidades)+ "."
-DobleEconomy.comodidades = ", ".join(DobleEconomy.comodidades)+ "."
 
 PuntaDeLobos = HabitacionDoble("Punta De Lobos")
 Infierno = HabitacionDoble("Infierno")
@@ -85,7 +63,7 @@ def habitacionReserva(habitacion):
     print(" "+habitacion.descripcion)
     print(" Maximo de Personas:", habitacion.ocupacion_max)
     print(" Tarifa: $",'{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
-    print(" "+habitacion.comodidades)
+    print(" " + ", ".join(habitacion.comodidades))
 
     print("------------")
     print("Habitaciones")
@@ -126,3 +104,4 @@ while True:
         break
     cls()
 input()
+
