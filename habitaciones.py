@@ -8,12 +8,13 @@ class Habitacion:
     tarifa_online = 0
     comodidades = ["Televisión por cable" , "Secador de Cabello", "WiFi"]
     estado = "libre"
-    habitaciones = []
-    diasReservado = []
+    todas_habitaciones = []
+    dias_reservados = []
  
     #--Acciones--#
     def __init__(habitacion, nombre):
         habitacion.nombre = nombre
+        habitacion.todas_habitaciones.append([habitacion.tipo,(nombre)])
 
     def __str__(habitacion):
         return habitacion.nombre
@@ -41,4 +42,6 @@ class Cliente:
     apellidos = ""
     teléfono = ""
     
+  
+
   
