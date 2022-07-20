@@ -63,27 +63,6 @@ Paimon = DobleEconomy("Paimon")
 
 DobleEconomy.habitaciones = [Pinochet, Paimon]
 
-def habitacionDatos(habitacion):
-    print()
-    print(' ', habitacion.tipo.upper())
-    print()
-    print(">", habitacion.descripcion)
-    print("> Maximo de Personas:", habitacion.ocupacion_max)
-    print("> Tarifa por día: $", '{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
-    print(">",  ", ".join(habitacion.comodidades))
-    print()
-
-def habitacionReserva(habitacion, dias_reserva):
-    # Devuelve las habitaciones disponibles
-        
-    lista_habitaciones = []
-    for i in habitacion.habitaciones:
-        for j in dias_reserva: 
-            if j in i.dias_reservados or i in lista_habitaciones: break
-        else: lista_habitaciones.append(i)        
-            
-    return lista_habitaciones
-
 titulo = "Hotel Mar y Vino"
 año = 2022
 
@@ -109,7 +88,14 @@ while True:
         elif opcion == "2": habitacion = HabitacionQuintuple
         elif opcion == "3": habitacion = DobleEconomy
 
-        habitacionDatos(habitacion)
+        print()
+        print(' ', habitacion.tipo.upper())
+        print()
+        print(">", habitacion.descripcion)
+        print("> Maximo de Personas:", habitacion.ocupacion_max)
+        print("> Tarifa por día: $", '{:_}'.format(habitacion.tarifa_online).replace('_', '.'))
+        print(">",  ", ".join(habitacion.comodidades))
+        print()
   
         #####     INPUT DE FECHA RESERVA     #####
         menu("Dias a Reservar")
@@ -138,10 +124,21 @@ while True:
         dias_reserva_lista = tiempoEstadia(reserva_inicio, dias_reserva)
         #####   FIN INPUT DE FECHA RESERVA    #####
         
-     
+        print()
         menu("Habitaciones Disponibles")
 
-        lista_habitaciones = enumerate(habitacionReserva(habitacion, dias_reserva_lista), start = 1)
+        lista_habitaciones = []
+        for i in habitacion.habitaciones:
+            for j in dias_reserva_lista: 
+                if j in i.dias_reservados or i in lista_habitaciones: break
+            else: lista_habitaciones.append(i)      
+
+        if lista_habitaciones == []: 
+            print(" No hay habitaciones disponibles en las fechas indicadas", end = "")
+            input()
+            break
+
+        lista_habitaciones = list(enumerate(lista_habitaciones, start = 1))
 
         for i in lista_habitaciones:     
             print(f">  {i[0]}.- {i[1].nombre}")
@@ -149,7 +146,7 @@ while True:
 
         habitacion_reservar = input("-Elija una habitación (Número o Nombre): ")
 
-        while True:    
+        while True: 
             for i,j in lista_habitaciones:
                 if habitacion_reservar.lower() in (str(i), j.nombre.lower()):
                     habitacion_reservar = j
@@ -171,8 +168,7 @@ while True:
 
         if resultado_reserva == True:
             print(f" Ha reservado {habitacion_reservar.nombre} ({habitacion_reservar.tipo}) desde {reserva_inicio} al {reserva_fin}", end = "")
-            print(f" Valor: {'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}")
-            print(habitacion_reservar.dias_reservados)
+            print(f" Valor: ${'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}")
             input()
         elif resultado_reserva == False:
             print(f" Ha ocurrido un error, volviendo al menú principal...",end = "")
@@ -183,4 +179,5 @@ while True:
     if opcion == "4": break     
     clear()
 input()
+
 
