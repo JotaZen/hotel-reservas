@@ -159,13 +159,13 @@ while True:
 
         reserva = input(f"-Quiere reservar {habitacion_reservar.nombre} ({habitacion_reservar.tipo})" 
                             f"desde {reserva_inicio} a {reserva_fin}?\n" 
-                            f"Valor: ${'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}Si/No: ")
+                            f"Valor: ${'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}  Si/No: ")
 
         while reserva.lower() not in ("si", "no"):
             print(" Ingrese una opcion correcta...")
             reserva = input(f"-Quiere reservar {habitacion_reservar.nombre} ({habitacion_reservar.tipo})" 
                             f"desde {reserva_inicio} a {reserva_fin}?\n" 
-                            f"Valor: ${'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}Si/No: ")
+                            f"Valor: ${'{:_}'.format(calculoPrecio(habitacion_reservar, dias_reserva)).replace('_', '.')}  Si/No: ")
 
         if reserva == "no": break
         
