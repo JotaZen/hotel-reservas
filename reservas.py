@@ -70,12 +70,20 @@ menu(titulo)
 
 while True:
     menu("Reservas")
-    print("-"*30)
-    print("1 - Habitacion Doble")
-    print("2 - Habitacion Quintuple")
-    print("3 - Doble Economy")
-    print("4 - Salir")
-    print("-"*30)
+    print("1.- Habitacion Doble")
+    print()
+    print(">", HabitacionDoble.descripcion)
+    print()
+    print("2.- Habitacion Quintuple")
+    print()
+    print(">", HabitacionQuintuple.descripcion)
+    print()
+    print("3.- Doble Economy")
+    print()
+    print(">", DobleEconomy.descripcion)
+    print()
+    print("4.- Salir")
+    print()
     
     opcion = input("-Que opcion desea?: ")
     while not opcion in ("1","2","3","4"):
@@ -89,7 +97,7 @@ while True:
         elif opcion == "3": habitacion = DobleEconomy
 
         print()
-        print(' ', habitacion.tipo.upper())
+        print(" ", habitacion.tipo.upper())
         print()
         print(">", habitacion.descripcion)
         print("> Maximo de Personas:", habitacion.ocupacion_max)
