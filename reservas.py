@@ -149,13 +149,10 @@ while True:
 
         habitacion_reservar = input("-Elija una habitación (Número o Nombre): ")
 
-        while True:
-            if habitacion_reservar.isnumeric(): habitacion_reservar = int(habitacion_reservar)
-            else: habitacion_reservar = habitacion_reservar.lower()             
-
-            for i in lista_habitaciones:
-                if habitacion_reservar == i[0] or habitacion_reservar == i[1].nombre.lower():
-                    habitacion_reservar = i[1]
+        while True:    
+            for i,j in lista_habitaciones:
+                if habitacion_reservar.lower() in (str(i), j.nombre.lower()):
+                    habitacion_reservar = j
                     break
             else: 
                 print(" Datos erróneos / ", end = "")
@@ -186,3 +183,4 @@ while True:
     if opcion == "4": break     
     clear()
 input()
+
